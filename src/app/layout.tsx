@@ -11,7 +11,10 @@ const brigesta = localFont({
 
 export const metadata: Metadata = {
   title: "Alonear",
-  description: "Alonear",
+  description: "Get exclusive",
+  openGraph: {
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
