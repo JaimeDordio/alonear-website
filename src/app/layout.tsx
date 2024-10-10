@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 
 const brigesta = localFont({
@@ -27,7 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${brigesta.variable} antialiased`}>
         {children}
+
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
