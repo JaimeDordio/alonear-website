@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
@@ -24,7 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${brigesta.variable} antialiased`}>{children}</body>
+      <body className={`${brigesta.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
