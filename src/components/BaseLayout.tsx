@@ -13,6 +13,7 @@ const brigesta = localFont({
   src: "../app/fonts/brigesta/brigesta-brigesta-regular-400.ttf",
   variable: "--font-brigesta",
 });
+
 type Props = {
   children: ReactNode;
   locale: string;
