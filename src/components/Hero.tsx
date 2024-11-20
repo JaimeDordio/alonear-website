@@ -67,7 +67,7 @@ export default function Hero() {
   useEffect(() => {
     if (!isMobile) return;
 
-    let startTime = performance.now();
+    const startTime = performance.now();
     const interval = setInterval(() => {
       const elapsed = performance.now() - startTime;
       const speed = 0.0001;
