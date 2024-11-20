@@ -20,13 +20,13 @@ type Props = {
 };
 
 export default async function BaseLayout({ children, locale }: Props) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
-    <html className={`h-full ${brigesta.variable}`} lang={locale}>
-      <body className={clsx(inter.className, "flex h-full flex-col bg-black")}>
+    <html className={`${brigesta.variable}`} lang={locale}>
+      <body
+        className={clsx(inter.className, "flex flex-col bg-black relative")}
+      >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
 
