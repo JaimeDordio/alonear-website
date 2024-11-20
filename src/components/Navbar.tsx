@@ -33,14 +33,14 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login">
+            <Link href="https://creator.alonear.com/login">
               <button className="group relative overflow-hidden rounded-md bg-black-500 text-lg shadow-lg px-6 py-0.5 border-2 border-black-50">
                 <div className="absolute inset-0 bottom-0 h-0 bg-gray-400 transition-all duration-[250ms] ease-out group-hover:h-full"></div>
                 <span className="relative text-sm">{t("login")}</span>
               </button>
             </Link>
 
-            <Link href="/signup">
+            <Link href="https://creator.alonear.com/signup">
               <button className="group relative overflow-hidden rounded-md bg-primary-500 text-lg shadow-lg px-6 py-0.5 border-2 border-primary-50">
                 <div className="absolute inset-0 bottom-0 h-0 bg-gray-400 transition-all duration-[250ms] ease-out group-hover:h-full"></div>
                 <span className="relative text-sm">{t("signup")}</span>
@@ -100,10 +100,6 @@ export default function Navbar() {
                     <span className="relative text-sm">{t("signup")}</span>
                   </button>
                 </Link>
-
-                <div className="flex justify-end">
-                  <LocaleSwitcher />
-                </div>
               </div>
             </div>
           </motion.div>

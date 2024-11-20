@@ -3,16 +3,8 @@
     "description": "<p>Desafortunadamente hemos encontrado un error.</p><p>Puedes intentar <retry>recargar la página</retry> que estabas visitando.</p>",
     "title": "¡Algo salió mal!"
   },
-  "IndexPage": {
-    "description": "Este es un ejemplo básico que demuestra el uso de <code>next-intl</code> con Next.js App Router. Intenta cambiar el idioma en la esquina superior derecha y observa cómo cambia el contenido.",
-    "title": "Alonear™"
-  },
   "LocaleLayout": {
     "title": "Alonear™"
-  },
-  "LocaleSwitcher": {
-    "label": "Cambiar idioma",
-    "locale": "{locale, select, es {🇪🇸 Español} en {🇺🇸 English} other {Desconocido}}"
   },
   "Manifest": {
     "name": "Alonear™"
@@ -25,12 +17,6 @@
     "description": "Por favor, verifica la dirección en el navegador o usa la navegación para ir a una página conocida.",
     "title": "Página no encontrada"
   },
-  "PageLayout": {},
-  "PathnamesPage": {
-    "description": "<p>Las rutas también están internacionalizadas.</p><p>Si estás usando el idioma predeterminado inglés, verás <code>/en/pathnames</code> en la barra de direcciones del navegador en esta página.</p><p>Si cambias el idioma a español, la URL se localiza en consecuencia (<code>/es/rutas</code>).</p>",
-    "title": "Rutas"
-  },
-
   "Navbar": {
     "login": "Entrar",
     "signup": "Unirme"

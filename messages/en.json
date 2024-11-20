@@ -3,16 +3,9 @@
     "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
     "title": "Something went wrong!"
   },
-  "IndexPage": {
-    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
-    "title": "Alonear™"
-  },
+
   "LocaleLayout": {
     "title": "Alonear™"
-  },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, es {🇪🇸 Spanish} en {🇺🇸 English} other {Unknown}}"
   },
   "Manifest": {
     "name": "Alonear™"

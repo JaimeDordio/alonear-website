@@ -307,8 +307,6 @@ function Card() {
         alignItems: "center",
         flexDirection: "column",
         textAlign: "center",
-        textShadow: "0 1px 0 #999",
-        color: "rgba(255 255 255 / 0.7)",
         position: "relative",
         zIndex: 0,
       }}
@@ -322,12 +320,20 @@ function Card() {
           className="h-auto"
         />
 
-        <div className="flex flex-col gap-2 mt-auto text-right">
-          <h2 className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-primary-100 to-primary-200 [text-shadow:-1px_-1px_2px_rgba(0,0,0,0.7),1px_1px_1px_rgba(255,255,255,0.15)] tracking-wider">
-            Sky Williams
+        <div className="flex flex-col gap-3 mt-auto text-right">
+          <h2
+            className="text-2xl font-medium tracking-widest
+            text-transparent
+            [text-shadow:0_1px_2px_rgba(255,255,255,0.15),0_-1px_1px_rgba(0,0,0,0.7)]"
+          >
+            SKY WILLIAMS
           </h2>
-          <p className="text-base font-thin text-transparent bg-clip-text bg-gradient-to-b from-primary-400 to-primary-500 [text-shadow:-1px_-1px_2px_rgba(0,0,0,0.7),1px_1px_1px_rgba(255,255,255,0.15)] tracking-wider">
-            Creator number 0000000
+          <p
+            className="text-sm tracking-[0.1em]
+            text-transparent
+            [text-shadow:0_1px_2px_rgba(255,255,255,0.15),0_-1px_1px_rgba(0,0,0,0.7)]"
+          >
+            Creator #0000000
           </p>
         </div>
       </div>
