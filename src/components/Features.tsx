@@ -8,12 +8,48 @@ import {
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
 import { BentoGrid, BentoGridItem } from "./BentoGrid";
 
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 export default function Features() {
   const t = useTranslations("Features");
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.2,
+    margin: "-10% 0% -10% 0%",
+  });
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.8,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
 
   const items = [
     {
@@ -56,24 +92,41 @@ export default function Features() {
 
   return (
     <section className="py-16 max-w-6xl mx-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-extrabold text-center max-w-3xl mx-auto">
+      <motion.div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <motion.h2
+          className="text-4xl font-extrabold text-center max-w-3xl mx-auto"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {t("title")} <span className="text-purple-600">{t("highlight")}</span>
-        </h2>
+        </motion.h2>
 
-        <BentoGrid className="max-w-4xl mx-auto mt-12">
-          {items.map((item, i) => (
-            <BentoGridItem
-              key={i}
-              title={item.title}
-              description={item.description}
-              header={item.header}
-              icon={item.icon}
-              className={i === 0 || i === 3 || i === 5 ? "md:col-span-2" : ""}
-            />
-          ))}
-        </BentoGrid>
-      </div>
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <BentoGrid className="max-w-4xl mx-auto mt-12">
+            {items.map((item, i) => (
+              <BentoGridItem
+                key={i}
+                title={item.title}
+                description={item.description}
+                header={item.header}
+                icon={item.icon}
+                className={i === 0 || i === 3 || i === 5 ? "md:col-span-2" : ""}
+              />
+            ))}
+          </BentoGrid>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

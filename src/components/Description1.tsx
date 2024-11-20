@@ -11,8 +11,8 @@ export default function Description1() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    amount: 0.3,
-    margin: "-20% 0% -20% 0%",
+    amount: 0.2,
+    margin: "-10% 0% -10% 0%",
   });
 
   const textContainerVariants = {
