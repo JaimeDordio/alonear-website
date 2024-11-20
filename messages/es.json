@@ -1,0 +1,117 @@
+{
+  "Error": {
+    "description": "<p>Desafortunadamente hemos encontrado un error.</p><p>Puedes intentar <retry>recargar la página</retry> que estabas visitando.</p>",
+    "title": "¡Algo salió mal!"
+  },
+  "IndexPage": {
+    "description": "Este es un ejemplo básico que demuestra el uso de <code>next-intl</code> con Next.js App Router. Intenta cambiar el idioma en la esquina superior derecha y observa cómo cambia el contenido.",
+    "title": "Alonear™"
+  },
+  "LocaleLayout": {
+    "title": "Alonear™"
+  },
+  "LocaleSwitcher": {
+    "label": "Cambiar idioma",
+    "locale": "{locale, select, es {🇪🇸 Español} en {🇺🇸 English} other {Desconocido}}"
+  },
+  "Manifest": {
+    "name": "Alonear™"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "pathnames": "Rutas"
+  },
+  "NotFoundPage": {
+    "description": "Por favor, verifica la dirección en el navegador o usa la navegación para ir a una página conocida.",
+    "title": "Página no encontrada"
+  },
+  "PageLayout": {},
+  "PathnamesPage": {
+    "description": "<p>Las rutas también están internacionalizadas.</p><p>Si estás usando el idioma predeterminado inglés, verás <code>/en/pathnames</code> en la barra de direcciones del navegador en esta página.</p><p>Si cambias el idioma a español, la URL se localiza en consecuencia (<code>/es/rutas</code>).</p>",
+    "title": "Rutas"
+  },
+
+  "Navbar": {
+    "login": "Entrar",
+    "signup": "Unirme"
+  },
+  "Hero": {
+    "title_1": "Crea con Libertad,",
+    "title_2": "Monetiza con",
+    "highlight": "éxito.",
+    "description": "No sigas las reglas, reinventa el juego. Conexión directa con tu audiencia, funcionalidades únicas, comisiones más competitivas y herramientas avanzadas para maximizar tus ingresos.",
+    "learn_more": "Aprender más",
+    "join": "Únete"
+  },
+  "Description1": {
+    "title": "La plataforma de suscripción para crear, conectar y monetizar sin límites",
+    "description": "En Alonear™, la libertad es tuya: diseña membresías únicas, ofrece llamadas privadas 1 a 1 y comparte publicaciones que cautiven a tus fans. Con herramientas avanzadas y un diseño intuitivo y elegante, cada interacción potencia tu creatividad y tus ingresos."
+  },
+  "Description2": {
+    "title": "Reinventa cómo conectas y monetizas",
+    "description": "Con Alonear™, tú decides cómo conectar con tu audiencia. Personaliza tus interacciones con herramientas únicas como mensajes directos, llamadas privadas 1 a 1 y membresías exclusivas. Haz que tus fans formen parte de algo más que contenido: una experiencia única que destaca tu talento."
+  },
+  "Features": {
+    "title": "Las herramientas que necesitas para escalar tu éxito y ser",
+    "highlight": "dueño de tu marca",
+    "items": [
+      {
+        "title": "Llamadas 1 a 1 por Minuto",
+        "description": "Cobra por tu tiempo en conversaciones privadas con tus seguidores. Comparte consejos, ofrece mentorías o simplemente conecta de forma auténtica mientras mantienes tu privacidad intacta."
+      },
+      {
+        "title": "Mensajes Directos Pagados",
+        "description": "Monetiza tus interacciones privadas a través de mensajes, fotos o videos desbloqueables, diseñados para cautivar a tus seguidores más leales."
+      },
+      {
+        "title": "Membresías Personalizables",
+        "description": "Ofrece acceso exclusivo a tu contenido más especial, con planes adaptados a las necesidades de tus seguidores."
+      },
+      {
+        "title": "Tu Propio Mercado",
+        "description": "Vende productos únicos, contenido descargable, memorabilia autografiada y más, directamente desde tu perfil. Convierte tu creatividad en una fuente constante de ingresos."
+      },
+      {
+        "title": "Descuentos y Regalos",
+        "description": "Ofrece pruebas gratuitas, códigos de descuento exclusivos o acepta regalos de tus seguidores sin comprometer tu privacidad."
+      },
+      {
+        "title": "Lista de Deseos",
+        "description": "Permite que tus fans te envíen obsequios sin compartir tu información personal."
+      }
+    ]
+  },
+  "AntiScreenshot": {
+    "title": "Tu Contenido, Tu Control, Tus Reglas",
+    "description": "Alonear no solo protege tu contenido, sino que lo empodera. Nuestra tecnología anti-captura y marcas de agua únicas aseguran que cada pieza de contenido esté completamente protegida, dándote tranquilidad para enfocarte en lo que haces mejor: crear. Con Alonear, tú tienes el control total de quién accede a tu contenido, cómo lo monetizas y cómo te conectas con tus fans. No hay límites, solo posibilidades."
+  },
+  "FAQ": {
+    "title": "Preguntas Frecuentes",
+    "items": [
+      {
+        "question": "Anonimato Absoluto",
+        "answer": "Protegemos tu identidad y la de tus seguidores con tecnología avanzada de privacidad. Tú decides cuánto compartes y cómo interactúas."
+      },
+      {
+        "question": "Comisiones Más Competitivas del Mercado",
+        "answer": "En Alonear, conservas el 90% de tus ingresos, porque sabemos que tu talento merece más. Sin tarifas ocultas, sin complicaciones."
+      },
+      {
+        "question": "Interacciones Exclusivas 1 a 1",
+        "answer": "Ofrecemos llamadas privadas en tiempo real para que puedas conectar personalmente con tus seguidores y maximizar tus ingresos con cada minuto."
+      },
+      {
+        "question": "Plataforma Completa e Intuitiva",
+        "answer": "Diseñada para creadores de todos los niveles, con herramientas fáciles de usar que te permiten enfocarte en lo que realmente importa: tu contenido."
+      },
+      {
+        "question": "Monetización Ilimitada",
+        "answer": "Desde membresías personalizables hasta transmisiones en vivo, tú decides cómo ganar dinero. La libertad es tuya."
+      },
+      {
+        "question": "Elegancia y Exclusividad",
+        "answer": "Inspirados en lo mejor del lujo y la sofisticación, hemos creado un espacio que refleja la esencia de tu contenido y eleva tu presencia."
+      }
+    ]
+  }
+}

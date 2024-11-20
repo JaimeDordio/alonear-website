@@ -1,37 +1,20 @@
-import "./globals.css";
+import "./styles.css";
 
-import { Analytics } from "@vercel/analytics/react";
-import type { Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import localFont from "next/font/local";
+import { Metadata } from "next";
+import { ReactNode } from "react";
 
-const brigesta = localFont({
-  src: "./fonts/brigesta/brigesta-brigesta-regular-400.ttf",
-  variable: "--font-brigesta",
-  weight: "400",
-});
+type Props = {
+  children: ReactNode;
+};
 
 export const metadata: Metadata = {
-  title: "Alonear",
-  description: "Get exclusive",
-  openGraph: {
-    images: ["/og.png"],
+  icons: {
+    shortcut: "/favicon.ico",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={`${brigesta.variable} antialiased`}>
-        {children}
-
-        <Analytics />
-        <SpeedInsights />
-      </body>
-    </html>
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: Props) {
+  return children;
 }
