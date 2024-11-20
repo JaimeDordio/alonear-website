@@ -10,7 +10,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -66,8 +66,61 @@ export default function Hero() {
     rgba(255 255 255 / ${sheenOpacity}) ${sheenPosition}%,
     rgba(76 78 73 / 1)`;
 
-  // handle mouse move on document
+  // Add device orientation state and detection
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    if (typeof window !== "undefined") {
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+    }
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Add device orientation handler
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      if (!event.beta || !event.gamma) return;
+
+      // Convert orientation values to mouse-like coordinates
+      const beta = Math.min(Math.max(event.beta, -90), 90); // Limit tilt to ±90°
+      const gamma = Math.min(Math.max(event.gamma, -90), 90);
+
+      // Animate with smoother transitions
+      animate(mouseX, (gamma / 90) * window.innerWidth, {
+        type: "spring",
+        stiffness: 150,
+        damping: 15,
+        mass: 0.1,
+      });
+      animate(mouseY, (beta / 90) * window.innerHeight, {
+        type: "spring",
+        stiffness: 150,
+        damping: 15,
+        mass: 0.1,
+      });
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, [isMobile]);
+
+  // Modify existing mouse move handler to only work on desktop
+  useEffect(() => {
+    if (isMobile) return; // Skip mouse handling on mobile
+
     const handleMouseMove = (e: MouseEvent) => {
       // animate mouse x and y with smoother transitions
       animate(mouseX, e.clientX, {
@@ -97,7 +150,7 @@ export default function Hero() {
       window.removeEventListener("mousemove", smoothMouseMove);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isMobile]);
 
   // Add scroll animation logic
   const { scrollY } = useScroll();
