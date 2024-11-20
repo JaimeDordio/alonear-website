@@ -41,7 +41,6 @@ export const metadata: Metadata = {
   creator: "Alonear",
   publisher: "Alonear",
   robots: "index, follow",
-  themeColor: "#000",
   viewport: {
     width: "device-width",
     initialScale: 1,

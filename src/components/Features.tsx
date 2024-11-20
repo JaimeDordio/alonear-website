@@ -115,7 +115,7 @@ export default function Features() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {t("title")} <span className="text-purple-600">{t("highlight")}</span>
+          {t("title")} <span className="text-bronze-500">{t("highlight")}</span>
         </motion.h2>
 
         <motion.div
@@ -140,7 +140,6 @@ export default function Features() {
     </section>
   );
 }
-
 const Skeleton = () => (
   <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-md bg-gradient-to-br from-black-100 dark:from-neutral-900 dark:to-neutral-800 to-neutral-900"></div>
 );

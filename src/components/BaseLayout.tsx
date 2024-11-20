@@ -25,7 +25,10 @@ export default async function BaseLayout({ children, locale }: Props) {
   return (
     <html className={`${brigesta.variable}`} lang={locale}>
       <body
-        className={clsx(inter.className, "flex flex-col bg-black relative")}
+        className={clsx(
+          inter.className,
+          "flex flex-col bg-black relative max-w-screen overflow-x-hidden"
+        )}
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
