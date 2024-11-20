@@ -20,6 +20,9 @@ const SIZE = 20;
 export default function Hero() {
   const t = useTranslations("Hero");
 
+  // Add device orientation state and detection
+  const [isMobile, setIsMobile] = useState(false);
+
   // mouse position
   const mouseX = useMotionValue(
     typeof window !== "undefined" ? window.innerWidth / 2 : 0
@@ -58,16 +61,13 @@ export default function Hero() {
   const sheenOpacity = useTransform(
     sheenPosition,
     [-250, 50, 250],
-    [0, 0.5, 0]
+    [0, isMobile ? 0.7 : 0.5, 0]
   );
   const sheenGradient = useMotionTemplate`linear-gradient(
     55deg,
     rgba(45 45 45 / 1),
     rgba(255 255 255 / ${sheenOpacity}) ${sheenPosition}%,
     rgba(76 78 73 / 1)`;
-
-  // Add device orientation state and detection
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -198,6 +198,27 @@ export default function Hero() {
     },
   };
 
+  // Add automatic sheen animation for mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    // Create an infinite animation loop for the sheen effect
+    const sheenAnimation = animate(
+      sheenPosition,
+      [-100, 200], // Move sheen from left to right
+      {
+        duration: 3, // Animation duration in seconds
+        ease: "easeInOut",
+        repeat: Infinity, // Repeat infinitely
+        repeatType: "reverse", // Reverse the animation each time
+      }
+    );
+
+    return () => {
+      sheenAnimation.stop(); // Cleanup animation on unmount
+    };
+  }, [isMobile, sheenPosition]);
+
   return (
     <motion.div
       className="relative w-full h-full max-w-7xl mx-auto flex flex-col justify-center"
@@ -211,7 +232,7 @@ export default function Hero() {
         <motion.div
           ref={ref}
           className="w-full lg:w-[60%] relative z-10 mb-12 lg:mb-0 lg:pr-8"
-          style={{ y: y1 }}
+          style={{ y: isMobile ? 0 : y1 }}
           variants={textContainerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -239,7 +260,7 @@ export default function Hero() {
             height: "400px",
             overflow: "visible",
             perspective: 1000,
-            y: y2,
+            y: isMobile ? 0 : y2,
           }}
           className="lg:absolute lg:w-[60%] lg:h-full lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-full"
         >
