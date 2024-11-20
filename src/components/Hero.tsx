@@ -70,7 +70,7 @@ export default function Hero() {
     const startTime = performance.now();
     const interval = setInterval(() => {
       const elapsed = performance.now() - startTime;
-      const speed = 0.0001;
+      const speed = 0.0005;
 
       // Different patterns you could try:
 
