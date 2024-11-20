@@ -23,31 +23,12 @@ export default function Hero() {
   // Add device orientation state and detection
   const [isMobile, setIsMobile] = useState(false);
 
-  // mouse position
-  const mouseX = useMotionValue(
-    typeof window !== "undefined" ? window.innerWidth / 2 : 0
-  );
-  const mouseY = useMotionValue(
-    typeof window !== "undefined" ? window.innerHeight / 2 : 0
-  );
+  // Create direct rotation motion values
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
 
   // a reference for our animated card element
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // rotation
-  const dampen = 40;
-  const rotateX = useTransform<number, number>(mouseY, (newMouseY) => {
-    if (!cardRef.current) return 0;
-    const rect = cardRef.current.getBoundingClientRect();
-    const newRotateX = newMouseY - rect.top - rect.height / 2;
-    return -newRotateX / dampen;
-  });
-  const rotateY = useTransform(mouseX, (newMouseX) => {
-    if (!cardRef.current) return 0;
-    const rect = cardRef.current.getBoundingClientRect();
-    const newRotateY = newMouseX - rect.left - rect.width / 2;
-    return newRotateY / dampen;
-  });
 
   // sheen
   const diagonalMovement = useTransform<number, number>(
@@ -82,54 +63,56 @@ export default function Hero() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Add device orientation handler
+  // Add automatic card movement animation for mobile
   useEffect(() => {
     if (!isMobile) return;
 
-    const handleOrientation = (event: DeviceOrientationEvent) => {
-      if (!event.beta || !event.gamma) return;
+    let startTime = performance.now();
+    const interval = setInterval(() => {
+      const elapsed = performance.now() - startTime;
+      const speed = 0.0001;
 
-      // Convert orientation values to mouse-like coordinates
-      const beta = Math.min(Math.max(event.beta, -90), 90); // Limit tilt to ±90°
-      const gamma = Math.min(Math.max(event.gamma, -90), 90);
+      // Different patterns you could try:
 
-      // Animate with smoother transitions
-      animate(mouseX, (gamma / 90) * window.innerWidth, {
-        type: "spring",
-        stiffness: 150,
-        damping: 15,
-        mass: 0.1,
-      });
-      animate(mouseY, (beta / 90) * window.innerHeight, {
-        type: "spring",
-        stiffness: 150,
-        damping: 15,
-        mass: 0.1,
-      });
-    };
+      // 1. Figure-8 pattern:
+      const newRotateX = Math.sin(elapsed * speed) * 15;
+      const newRotateY = Math.sin(elapsed * speed) * 15;
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("deviceorientation", handleOrientation);
-    }
+      // 2. Elliptical pattern:
+      // const newRotateX = Math.sin(elapsed * speed) * 10;
+      // const newRotateY = Math.cos(elapsed * speed) * 15;
 
-    return () => {
-      window.removeEventListener("deviceorientation", handleOrientation);
-    };
+      // 3. Current circular pattern:
+      //   const newRotateX = Math.sin(elapsed * speed) * 15;
+      //   const newRotateY = Math.cos(elapsed * speed) * 15;
+
+      rotateX.set(newRotateX);
+      rotateY.set(newRotateY);
+    }, 1000 / 60);
+
+    return () => clearInterval(interval);
   }, [isMobile]);
 
-  // Modify existing mouse move handler to only work on desktop
+  // Desktop mouse handling
   useEffect(() => {
-    if (isMobile) return; // Skip mouse handling on mobile
+    if (isMobile) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      // animate mouse x and y with smoother transitions
-      animate(mouseX, e.clientX, {
+      const rect = cardRef.current?.getBoundingClientRect();
+      if (!rect) return;
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const rotX = (e.clientY - centerY) / 20;
+      const rotY = (e.clientX - centerX) / 20;
+
+      animate(rotateX, -rotX, {
         type: "spring",
         stiffness: 150,
         damping: 15,
         mass: 0.1,
       });
-      animate(mouseY, e.clientY, {
+      animate(rotateY, rotY, {
         type: "spring",
         stiffness: 150,
         damping: 15,
@@ -137,19 +120,8 @@ export default function Hero() {
       });
     };
 
-    // Use requestAnimationFrame for smoother updates
-    let rafId: number;
-    const smoothMouseMove = (e: MouseEvent) => {
-      rafId = requestAnimationFrame(() => handleMouseMove(e));
-    };
-
-    if (typeof window === "undefined") return;
-    window.addEventListener("mousemove", smoothMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", smoothMouseMove);
-      cancelAnimationFrame(rafId);
-    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [isMobile]);
 
   // Add scroll animation logic
