@@ -142,5 +142,5 @@ export default function Features() {
 }
 
 const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-black-100 dark:from-neutral-900 dark:to-neutral-800 to-neutral-900"></div>
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-md bg-gradient-to-br from-black-100 dark:from-neutral-900 dark:to-neutral-800 to-neutral-900"></div>
 );
