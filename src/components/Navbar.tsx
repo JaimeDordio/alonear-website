@@ -87,19 +87,19 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-4">
               <div className="flex flex-col gap-4">
-                <Link href="/login" onClick={() => setIsOpen(false)}>
+                <a href="https://creator.alonear.com/login" target="_blank">
                   <button className="w-full group relative overflow-hidden rounded-md bg-black-500 text-lg shadow-lg px-6 py-0.5 border-2 border-black-50">
                     <div className="absolute inset-0 bottom-0 h-0 bg-gray-400 transition-all duration-[250ms] ease-out group-hover:h-full"></div>
                     <span className="relative text-sm">{t("login")}</span>
                   </button>
-                </Link>
+                </a>
 
-                <Link href="/signup" onClick={() => setIsOpen(false)}>
+                <a href="https://creator.alonear.com/signup" target="_blank">
                   <button className="w-full group relative overflow-hidden rounded-md bg-primary-500 text-lg shadow-lg px-6 py-0.5 border-2 border-primary-50">
                     <div className="absolute inset-0 bottom-0 h-0 bg-gray-400 transition-all duration-[250ms] ease-out group-hover:h-full"></div>
                     <span className="relative text-sm">{t("signup")}</span>
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
