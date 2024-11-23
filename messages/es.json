@@ -13,10 +13,6 @@
     "home": "Inicio",
     "pathnames": "Rutas"
   },
-  "NotFoundPage": {
-    "description": "Por favor, verifica la dirección en el navegador o usa la navegación para ir a una página conocida.",
-    "title": "Página no encontrada"
-  },
   "Navbar": {
     "login": "Entrar",
     "signup": "Unirme"
