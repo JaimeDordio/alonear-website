@@ -52,7 +52,8 @@ export default function Hero() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+      // setIsMobile(window.innerWidth <= 2000); // Adjust breakpoint as needed
+      setIsMobile(true);
     };
 
     if (typeof window !== "undefined") {
@@ -149,13 +150,28 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.8,
         delayChildren: 0.1,
       },
     },
   };
 
   const textItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const ctaItemVariants = {
     hidden: {
       opacity: 0,
       y: 30,
@@ -223,6 +239,16 @@ export default function Hero() {
           >
             {t("description")}
           </motion.p>
+          <motion.a
+            href="https://creator.alonear.com/login"
+            target="_blank"
+            variants={ctaItemVariants}
+          >
+            <button className="mt-6 group relative overflow-hidden rounded-md bg-black-500 shadow-lg px-6 py-1.5 border-2 border-black-50">
+              <div className="absolute inset-0 bottom-0 h-0 bg-gray-400 transition-all duration-[250ms] ease-out group-hover:h-full"></div>
+              <span className="relative text-sm">{t("cta")}</span>
+            </button>
+          </motion.a>
         </motion.div>
 
         {/* Card - Adjusted width */}

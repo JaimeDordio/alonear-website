@@ -7,7 +7,7 @@ export default function MarqueeBox() {
   ];
 
   return (
-    <div className="relative w-full overflow-x-hidden overflow-y-visible py-20 max-w-screen">
+    <div className="relative w-full overflow-x-hidden overflow-y-visible py-28 max-w-screen">
       <div className="relative w-[120%] left-1/2 -translate-x-1/2">
         <Marquee
           loop={0}
@@ -18,6 +18,7 @@ export default function MarqueeBox() {
           style={{ transform: "rotate(5deg)" }}
         >
           {Array.from({ length: 10 }).map((_, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               key={i}
               src={items[i % items.length].src}

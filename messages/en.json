@@ -18,7 +18,6 @@
     "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/es/rutas</code>).</p>",
     "title": "Pathnames"
   },
-
   "Navbar": {
     "login": "Login",
     "signup": "Join"
@@ -28,8 +27,7 @@
     "title_2": "Monetize with",
     "highlight": "success.",
     "description": "Don't follow the rules, reinvent the game. Direct connection with your audience, unique features, more competitive commissions and advanced tools to maximize your earnings.",
-    "learn_more": "Learn More",
-    "join": "Join"
+    "cta": "Start earning"
   },
   "Description1": {
     "title": "The subscription platform for creating, connecting and monetizing without limits",
