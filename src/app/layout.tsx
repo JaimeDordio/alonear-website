@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://alonear.com",
+    url: "https://creators.alonear.com",
     siteName: "Alonear",
     title: "Alonear",
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   title: "Alonear",
   description:
     "Alonear is a platform for creators to monetize their content and connect with their fans.",
-  authors: [{ name: "Alonear", url: "https://alonear.com" }],
+  authors: [{ name: "Alonear", url: "https://creators.alonear.com" }],
   creator: "Alonear",
   publisher: "Alonear",
   robots: "index, follow",
